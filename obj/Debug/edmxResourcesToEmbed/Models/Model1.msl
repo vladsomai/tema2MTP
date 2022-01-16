@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="masterModelStoreContainer" CdmEntityContainer="masterEntities">
+    <EntitySetMapping Name="Clientis">
+      <EntityTypeMapping TypeName="masterModel.Clienti">
+        <MappingFragment StoreEntitySet="Clienti">
+          <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="Prenume" ColumnName="Prenume" />
+          <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+          <ScalarProperty Name="CNP" ColumnName="CNP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Telefoanes">
+      <EntityTypeMapping TypeName="masterModel.Telefoane">
+        <MappingFragment StoreEntitySet="Telefoane">
+          <ScalarProperty Name="ID_Telefon" ColumnName="ID_Telefon" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="An_Fabricatie" ColumnName="An_Fabricatie" />
+          <ScalarProperty Name="Specificatii" ColumnName="Specificatii" />
+          <ScalarProperty Name="Pret" ColumnName="Pret" />
+          <ScalarProperty Name="Stoc" ColumnName="Stoc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

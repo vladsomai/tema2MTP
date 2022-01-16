@@ -1,0 +1,87 @@
+﻿@using Microsoft.AspNet.Identity
+
+@model IEnumerable<Tema2MTP.Models.Telefoane>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Telefoane disponibile</h2>
+
+@if (Request.IsAuthenticated)
+{
+    <p class=" text-large">
+        @Html.ActionLink("Adauga un nou telefon aici!", "Create")
+    </p>
+}
+
+<form class="d-flex" action="~/Telefoane/Index" method="post">
+    <label class="text-md">Cauta un telefon</label>
+    <input name="modelTelefon" placeholder="Model" type="text" class="form-control ms-5" />
+    <button class="btn btn-info ms-5">Cauta</button>
+</form>
+
+<p>@ViewBag.modelTelefon</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            <!--
+
+            @Html.DisplayNameFor(model => model.An_Fabricatie)
+            -->
+            An fabricatie
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Specificatii)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pret)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stoc)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.An_Fabricatie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Specificatii)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pret)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stoc)
+            </td>
+
+            @if (Request.IsAuthenticated)
+            {
+                <td>
+
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID_Telefon }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID_Telefon }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID_Telefon })
+                </td>
+            }
+            else
+            {
+                <td>
+                    @Html.ActionLink("Cumpara!", "Cumpara", new { id = item.ID_Telefon })
+                </td>
+            }
+        </tr>
+    }
+
+</table>
